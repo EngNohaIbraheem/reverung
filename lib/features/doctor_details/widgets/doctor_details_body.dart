@@ -1,3 +1,11 @@
+import 'package:flutter/material.dart';
+
+import '../data/doctor_dummy_data.dart';
+import 'doctor_card.dart';
+import 'doctor_map.dart';
+import 'doctor_statistics.dart';
+import 'services_section.dart';
+
 class DoctorDetailsBody extends StatelessWidget {
   const DoctorDetailsBody({super.key});
 
@@ -11,24 +19,59 @@ class DoctorDetailsBody extends StatelessWidget {
 
         children: [
 
-          DoctorHeader(),
+          const SizedBox(height: 15),
 
-          SizedBox(height:20),
+          Row(
+            children: [
 
-          DoctorCard(),
+              CircleAvatar(
+                backgroundColor: Colors.white,
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(Icons.arrow_back_ios_new),
+                ),
+              ),
 
-          SizedBox(height:20),
+              const SizedBox(width: 20),
 
-          StatisticsCard(),
+              const Expanded(
+                child: Text(
+                  "Doctor Details",
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
 
-          SizedBox(height:30),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.search),
+              ),
+            ],
+          ),
 
-          ServicesSection(),
+          const SizedBox(height: 25),
 
-          SizedBox(height:25),
+          DoctorCard(
+            doctor: doctor,
+          ),
 
-          DoctorMap(),
+          const SizedBox(height: 25),
 
+          const DoctorStatistics(),
+
+          const SizedBox(height: 35),
+
+          ServicesSection(
+            services: services,
+          ),
+
+          const SizedBox(height: 30),
+
+          const DoctorMap(),
         ],
       ),
     );
