@@ -7,33 +7,51 @@ import '../widgets/features_doctor_section.dart';
 import '../widgets/header_section.dart';
 import '../widgets/live_doctor_list.dart';
 import '../widgets/popular_doctor_section.dart';
+import 'package:flutter/material.dart';
+
+import '../widgets/home_body.dart';
+import 'widgets/custom_bottom_navigation.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-  static const String routeName = "HomeScreen";
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      bottomNavigationBar: const HomeBottomNavigationBar(),
+    return const Scaffold(
+      backgroundColor: Color(0xffF8FCFF),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [
-              HeaderSection(),
-              SizedBox(height: 20),
-              LiveDoctorsList(),
-              SizedBox(height: 25),
-              CategoryGrid(),
-              SizedBox(height: 25),
-              PopularDoctorsSection(),
-              SizedBox(height: 25),
-              FeaturedDoctorsSection(),
-            ],
-          ),
-        ),
+        child: HomeBody(),
       ),
+      bottomNavigationBar: CustomBottomNavigation(),
     );
   }
 }
+// class HomeScreen extends StatelessWidget {
+//   const HomeScreen({super.key});
+//   static const String routeName = "HomeScreen";
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       bottomNavigationBar: const HomeBottomNavigationBar(),
+//       body: SafeArea(
+//         child: SingleChildScrollView(
+//           child: Column(
+//             children: const [
+//               HeaderSection(),
+//               SizedBox(height: 20),
+//               LiveDoctorsList(),
+//               SizedBox(height: 25),
+//               CategoryGrid(),
+//               SizedBox(height: 25),
+//               PopularDoctorsSection(),
+//               SizedBox(height: 25),
+//               FeaturedDoctorsSection(),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
